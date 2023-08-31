@@ -3,7 +3,7 @@
 
 Create an animated "Matrix" movie-style text animation using SVG and JavaScript. Each word appears with characters in a vertical order, and the words move together in sync from the top to the bottom of the screen.
 
-![Matrix Animation Preview](preview.gif)
+Demo: [Matrix Animation Preview](https://krithoonsuwan.github.io/svg-matrix-animate/)
 
 ## Features
 
