@@ -5,6 +5,7 @@
     <title>The Matrix</title>
     <style>
         #matrix-container {
+            background: black;
             position: fixed;
             top: 0;
             left: 0;
@@ -17,16 +18,16 @@
 
 <body>
     <div id="matrix-container"></div>
-    <button id="switch-button">Switch</button>
+    <!-- <button id="switch-button">Switch</button> -->
 </body>
 
 <script>
     const params = new URLSearchParams(location.search)
     let nScript = Number(params.get('q') || 1);
 
-    document.getElementById("switch-button").addEventListener("click", () => {
-        switchScript();
-    });
+    // document.getElementById("switch-button").addEventListener("click", () => {
+    //     switchScript();
+    // });
 
     function switchScript() {
         const url = [location.href]
