@@ -5,6 +5,26 @@ svg.setAttribute('height', '100%');
 document.getElementById("matrix-container").appendChild(svg);
 
 const WORDS = [
+  "Futurïstic", "Vïrtuál", "Cybêr", "Ëlectronic", "Hologrâph", 
+  "Ârtificial", "Nanøtech", "Bîonic", "Hypermârket", "Phâser", 
+  "Antigrâvity", "Ëxoplanet", "Trãnsport", "Quantum", "Sølar", 
+  "Bïomech", "Cryôgenics", "Stëllar", "Spãceship", "Nëural", 
+  "Resøurce", "Ëxperiment", "Spëcial", "Astêroid", "Plasmâ", 
+  "Cøsmic", "Nëbulâ", "Videõ", "Xenølogy", "Zerø-grâvity", 
+  "Mâtrix", "Antimâtter", "Warp", "Fïction", "Teleport", 
+  "Nãnotech", "Cyborg", "Mëgastructurë", "Hâcking", "Infïnite", 
+  "Intergãlactic", "Ëxtraterrestrial", "Synthétic", "Vïrtuosity", "Télékinesis", 
+  "Interfâce", "Ëther", "Sîmulation", "Astrønaut", "Pãrallel", 
+  "Nãnobot", "Stëalth", "Måtrix", "Ëxploration", "Lâser", 
+  "Pørtal", "Gâlactic", "Bïotech", "Phøton", "Thêory", 
+  "Rôbotic", "Orbît", "Ëcology", "Bîoengineering", "Hydrøponic", 
+  "Télomere", "Ëxoplanetary", "Cløning", "Cøsmos", "Intelligence", 
+  "Quâsar", "Dystopiãn", "Cøsmic", "Pølymer", "Vïsion", 
+  "Xerôgraphics", "Andrøid", "Ëxosuit", "Pãrticle", "Ënvironment", 
+  "Håløgram", "Dâtabase", "Nãnogenetics", "Energëtic", "Ëmpire", 
+  "Gëne", "Ëlectromagnetic", "Stâtion", "Prôton", "Gënetic", 
+  "Spëed", "Tëchnology", "Thëory", "Nëbula", "Cørporeal", 
+  "Prôbe", "Quãntum", "Vôyage", "Rëplicant", "Spãcecraft",
   "Nëxús", "Cÿbér", "Tëchnø", "Fütürë", "Vírtúál",
   "Áugmënt", "Süpër", "Hýpër", "Nánø", "Rëplicánt",
   "Bïonic", "Aï", "Rëálity", "Mëga", "Quántüm",
@@ -29,7 +49,7 @@ const WORDS = [
 ];
 
 
-const DEFAULT_WORD_COUNT = 240;
+const DEFAULT_WORD_COUNT = 300;
 const MIN_DURATION = 1.5;
 const MAX_DURATION = 14;
 const MIN_FONTSIZE = 10;
