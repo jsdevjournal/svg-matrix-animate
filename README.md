@@ -26,11 +26,12 @@ Demo: [Matrix Animation Preview](https://krithoonsuwan.github.io/svg-matrix-anim
 
 You can customize the animation by modifying the following parameters in the `index.html` file:
 
-- `words`: An array of words to be animated.
-- `numRows`: Number of rows in the animation.
-- `wordWidth`: Width of each word.
-- `animationDurationRange`: Range of animation durations (in seconds).
-- `fontSizeRange`: Range of font sizes (in pixels).
+- `WORDS`: An array of words to be animated.
+- `DEFAULT_WORD_COUNT`: Number of word in the animation.
+- `MIN_DURATION`: Maximum speed of word transitioning.
+- `MAX_DURATION`: Minimum speed of word transitioning.
+- `MIN_FONTSIZE`: Min font sizes (in pixels).
+- `MAX_FONTSIZE`: Max font sizes (in pixels).
 
 ## Contributing
 
