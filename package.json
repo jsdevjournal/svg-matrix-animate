@@ -4,6 +4,7 @@
   "description": "`The Matrix` movie-style text animations using SVG and JavaScript.",
   "main": "index.js",
   "scripts": {
+    "start": "python3 -m http.server 8000",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Krit Hoonsuwan",

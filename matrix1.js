@@ -1,8 +1,8 @@
-
 const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 svg.setAttribute('width', '100%');
 svg.setAttribute('height', '100%');
-document.getElementById("matrix-container").appendChild(svg);
+document.getElementById("container").appendChild(svg);
+document.body.style.backgroundColor = "black";
 
 const WORDS = [
   "Futurïstic", "Vïrtuál", "Cybêr", "Ëlectronic", "Hologrâph", 

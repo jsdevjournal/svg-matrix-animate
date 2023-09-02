@@ -4,43 +4,25 @@
 <head>
     <title>The Matrix</title>
     <style>
-        #matrix-container {
-            background: black;
-            position: fixed;
+        #container {
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
     </style>
 </head>
 
 <body>
-    <div id="matrix-container"></div>
+    <div id="container"></div>
     <!-- <button id="switch-button">Switch</button> -->
+    <!-- <script src="animation1.js"></script> -->
+    <script src="matrix1.js"></script>
 </body>
-
-<script>
-    const params = new URLSearchParams(location.search)
-    let nScript = Number(params.get('q') || 1);
-
-    // document.getElementById("switch-button").addEventListener("click", () => {
-    //     switchScript();
-    // });
-
-    function switchScript() {
-        const url = [location.href]
-            .map(val => val.split('?q')[0])
-            .map(val => `${val}?q=`)
-            .map(val => `${val}${nScript === 1 ? 2 : 1}`)[0]
-        location.replace(url);
-    }
-
-    const scriptElem = document.createElement('script');
-    scriptElem.src = nScript === 1 ? "./matrix1.js" : "./matrix2.js";
-    document.body.appendChild(scriptElem);
-
-</script>
 
 </html>
