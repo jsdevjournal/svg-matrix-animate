@@ -4,75 +4,45 @@ svg.setAttribute('height', '100%');
 document.getElementById("container").appendChild(svg);
 document.body.style.backgroundColor = "black";
 
-const WORDS = [
-  "Futurïstic", "Vïrtuál", "Cybêr", "Ëlectronic", "Hologrâph", 
-  "Ârtificial", "Nanøtech", "Bîonic", "Hypermârket", "Phâser", 
-  "Antigrâvity", "Ëxoplanet", "Trãnsport", "Quantum", "Sølar", 
-  "Bïomech", "Cryôgenics", "Stëllar", "Spãceship", "Nëural", 
-  "Resøurce", "Ëxperiment", "Spëcial", "Astêroid", "Plasmâ", 
-  "Cøsmic", "Nëbulâ", "Videõ", "Xenølogy", "Zerø-grâvity", 
-  "Mâtrix", "Antimâtter", "Warp", "Fïction", "Teleport", 
-  "Nãnotech", "Cyborg", "Mëgastructurë", "Hâcking", "Infïnite", 
-  "Intergãlactic", "Ëxtraterrestrial", "Synthétic", "Vïrtuosity", "Télékinesis", 
-  "Interfâce", "Ëther", "Sîmulation", "Astrønaut", "Pãrallel", 
-  "Nãnobot", "Stëalth", "Måtrix", "Ëxploration", "Lâser", 
-  "Pørtal", "Gâlactic", "Bïotech", "Phøton", "Thêory", 
-  "Rôbotic", "Orbît", "Ëcology", "Bîoengineering", "Hydrøponic", 
-  "Télomere", "Ëxoplanetary", "Cløning", "Cøsmos", "Intelligence", 
-  "Quâsar", "Dystopiãn", "Cøsmic", "Pølymer", "Vïsion", 
-  "Xerôgraphics", "Andrøid", "Ëxosuit", "Pãrticle", "Ënvironment", 
-  "Håløgram", "Dâtabase", "Nãnogenetics", "Energëtic", "Ëmpire", 
-  "Gëne", "Ëlectromagnetic", "Stâtion", "Prôton", "Gënetic", 
-  "Spëed", "Tëchnology", "Thëory", "Nëbula", "Cørporeal", 
-  "Prôbe", "Quãntum", "Vôyage", "Rëplicant", "Spãcecraft",
-  "Nëxús", "Cÿbér", "Tëchnø", "Fütürë", "Vírtúál",
-  "Áugmënt", "Süpër", "Hýpër", "Nánø", "Rëplicánt",
-  "Bïonic", "Aï", "Rëálity", "Mëga", "Quántüm",
-  "Dígítál", "Sï-Fí", "Elëktrø", "Hölogrâph", "Röbot",
-  "Sürrëal", "Exø", "Vírtúa", "Nänö", "Hólogrâfía",
-  "Äugménted", "Tëléport", "Ëxoplanet", "Trânshumán", "Ärtificïal",
-  "Hóverboard", "Äströnomy", "Cryönic", "Üniverse", "Tëlepathy",
-  "Nânotech", "Gënëtics", "Bïotech", "Vïrtuälity", "Dýstopian",
-  "Biónics", "Älíën", "Clónë", "Pârallel", "Süstáinable",
-  "Ärmored", "Hýdrógen", "Äëronáutics", "Äntigrávity", "Ätom",
-  "Hölogrâm", "Ästëróid", "Äirshíp", "Älternate", "Gäïa",
-  "Résérvoír", "Électrön", "Mätrix", "Láser", "Äërospáce",
-  "Füsïon", "Sýnthétic", "Gëothermäl", "Pärticle", "Spâcestátion",
-  "Cósmic", "Üfö", "Gäläxy", "Súpersónic", "Phótón",
-  "Hólográphic", "Ärtifïcial", "Röcket", "Grávity", "Tïméträvel",
-  "Bïomechánic", "Súperscïence", "Sürge", "Pläsmä", "Ëcösystém",
-  "Nëutrïno", "Bïodôme", "Tëléportátion", "Äströnäut", "Háckér",
-  "Äliënätiön", "Ëvolútion", "Thëorïes", "Ütopïa", "Cïrcuït",
-  "Sölar", "Prótón", "Nänóbots", "ÜFOlogïst", "Älterïng",
-  "Ünearthly", "Tïmespän", "Dïstört", "Vïräl", "Phäntom",
-  "Ëxträterrestrial", "Äïrlock", "Ëtherëäl", "Nüclëär", "Pülse"
-];
-
-
 const DEFAULT_WORD_COUNT = 300;
-const MIN_DURATION = 1.5;
-const MAX_DURATION = 14;
+const MIN_DURATION = 2;
+const MAX_DURATION = 10;
 const MIN_FONTSIZE = 10;
 const MAX_FONTSIZE = 60;
 const getRandomNumber = (min, max) => () => Math.floor(Math.random() * (max - min) + min);
 const windowHeight = window.innerHeight;
 const windowWidth = window.innerWidth;
 const numRows = 30; // Number of rows in animation
+const getNewWordLen = getRandomNumber(6, 10);
 const getAnimationDuration = getRandomNumber(MIN_DURATION, MAX_DURATION); // Range of animation durations (in seconds)
 const getFontSize = getRandomNumber(MIN_FONTSIZE, MAX_FONTSIZE); // Range of font sizes (in pixels)
 const getX = getRandomNumber(0, windowWidth);
-const getWordIndex = getRandomNumber(0, WORDS.length - 1);
+
+function pick(...args) {
+  return args[getRandomNumber(0, args.length - 1)()];
+}
+
+
+function getChar() {
+  return String.fromCharCode(
+      pick(
+          getRandomNumber(0x3041, 0x30ff)(),
+          getRandomNumber(0x2000, 0x206f)(),
+          getRandomNumber(0x0020, 0x003f)(),
+      )
+  )
+}
 
 function createElementNS(name) {
   return document.createElementNS('http://www.w3.org/2000/svg', name);
 }
 
-function createTextElem(x, y, character, fontSize) {
+function createTextElem(x, y, character, fontSize, color) {
   const textElement = createElementNS('text');
   textElement.textContent = character;
   textElement.setAttribute('x', x);
   textElement.setAttribute('y', y);
-  textElement.setAttribute('fill', 'green');
+  textElement.setAttribute('fill', color);
   textElement.setAttribute('fill-opacity', fontSize / MAX_FONTSIZE);
   textElement.setAttribute('font-size', fontSize);
   return textElement;
@@ -91,15 +61,16 @@ function createAnimationElem(startX, endX, startY, endY) {
 }
 
 function createWordElem(x, word) {
+  const len = word.length;
   const fontSize = getFontSize();
-  const wordHeight = fontSize * word.length;
+  const wordHeight = fontSize * len;
 
   const wordContainer = createElementNS('g');
   wordContainer.setAttribute('transform', `translate(${x}, ${Math.random() * -wordHeight})`);
   
-  for (let i = 0; i < word.length; i++) {
+  for (let i = 0; i < len; i++) {
     const character = word[i];
-    const textElement = createTextElem(x, i * fontSize, character, fontSize);
+    const textElement = createTextElem(x, i * fontSize, character, fontSize, `hsl(136, 100%, ${85 / len * (i + 1)}%)`);
     wordContainer.appendChild(textElement);
   }
 
@@ -109,10 +80,14 @@ function createWordElem(x, word) {
   return wordContainer;
 }
 
-const createNewVal = () => ({
-  x: getX(),
-  word: WORDS[getWordIndex()]
-})
+const createNewVal = () => {
+  const len = getNewWordLen();
+  const word = [...new Array(len)].map(() => getChar());
+  return {
+    word,
+    x: getX(),
+  }
+}
 
 function pushMatrix(val) {
   const word = createWordElem(val.x, val.word);
